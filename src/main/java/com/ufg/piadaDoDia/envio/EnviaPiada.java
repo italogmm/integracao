@@ -8,12 +8,11 @@ import com.google.android.gcm.server.Sender;
 
 public class EnviaPiada {
 
-
 	
-	// Vari‡vel com o ID do dispositivo registrado no GCM
-	private static final String ID_DISPOSITIVO_GCM = "APA91bFwBJIJk37M4rDAB39sxGT3ilddjvIJHVpGaOxbGYkpCyGug4mkojkYaBDcx1U3TDBaM6NMI6YO3mSgW1U1uZv3gNRP-p5HIXTTn8QJEemqqDJJOOyBuZhjUGqV0pfz5pRszLrDVvV9bdX6Sn0oe9y2EiNN2JVzeRIT64nTXedhh91HyQs";
+	private static final String ID_DISPOSITIVO_GCM = "APA91bFjMlyQKV4vF_e173FAr7yEvztzs5NWtETxLC1cqt3eI6s18tzfkrh0cG9g1-H-NY4uKIWRCI5lQ1KmlJrN1rHdSl-vArpafsPtSMAw6gTmRGmLlXPpVUhOLZvYbIE1n7J1vyw7Av4giV5wT59XWh404x73zxP3yO2MgLxIdWzspYtBvvM";
+
 	// Vari‡vel com a chave obtida em API ACCESS no Google APIs
-	private static final String API_KEY = "AIzaSyCE-UiNpWF9ZSAv92tTbUPJUYv3a7ZV4k8";
+	private static final String API_KEY = "AIzaSyBytpKFCBBxCIHBUmxl5LKNtthYe_ozLxI";
 
 	public static void main(String[] args) {
 
@@ -40,6 +39,8 @@ public class EnviaPiada {
 		 */
 		try {
 			result = sender.send(message, ID_DISPOSITIVO_GCM, 1);
+			String canonicalRegId = result.getCanonicalRegistrationId();
+			System.out.println("canonicalRegId: " + canonicalRegId);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
