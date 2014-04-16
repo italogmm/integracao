@@ -8,28 +8,19 @@ import com.google.android.gcm.server.Sender;
 
 public class EnviaPiada {
 
-	
-	private static final String ID_DISPOSITIVO_GCM = "APA91bFjMlyQKV4vF_e173FAr7yEvztzs5NWtETxLC1cqt3eI6s18tzfkrh0cG9g1-H-NY4uKIWRCI5lQ1KmlJrN1rHdSl-vArpafsPtSMAw6gTmRGmLlXPpVUhOLZvYbIE1n7J1vyw7Av4giV5wT59XWh404x73zxP3yO2MgLxIdWzspYtBvvM";
+	private static final String ID_DISPOSITIVO_GCM = "APA91bHKGJz7HDkrgD6K_C8_yKqv99PqEKcs-c5CFQCWStTcdcZ3ev10lgeU0tsYcYxAnGM8-tOoAyrIokKZO2MhO3nn1SzOHXuOpvlqu4c_uwAWJkAmZLBL7mq2is1H-XZeFzrF-ANervFE_NPW93xrN9Zgb7BfNelfmPEmAtu0e96oWyqHBV8";
 
-	// Variável com a chave obtida em API ACCESS no Google APIs
-	private static final String API_KEY = "AIzaSyBytpKFCBBxCIHBUmxl5LKNtthYe_ozLxI";
+	private static final String API_KEY = "AIzaSyAmkYVzKkrdbc-VjdNqLeTfjU_AH8T1QfQ";
 
 	public static void main(String[] args) {
-
-		/**
-		 * ID do Sender (Enviador)
-		 */
+		
 		Sender sender = new Sender(API_KEY);
-
-		/**
-		 * Mensagem a ser enviada
-		 */
 		Message message = new Message.Builder()
 				.collapseKey("1")
 				.timeToLive(3)
 				.delayWhileIdle(true)
 				.addData("mensagem", // identificador da mensagem
-						"Olá! Este é um teste de envio de mensagem através do GCM!")
+						"Olá! Teste de envio de piada!")
 				.build();
 
 		Result result = null;
