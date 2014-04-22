@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Piada do dia</string>
+    <string name="hello_world">Piada do dia!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_mostra_mensagem">Piada Recebida</string>
+    <string name="title_activity_mostra_piada">MostraPiadaActivity</string>
+    <string name="piadas_recebidas">Piadas recebidas</string>
+
+</resources>
