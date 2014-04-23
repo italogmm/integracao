@@ -20,14 +20,11 @@ public class EnviaPiada {
 				.timeToLive(3)
 				.delayWhileIdle(true)
 				.addData("mensagem", // identificador da mensagem
-						"q isso uai ")
+						"q isso uai 3 ")
 				.build();
 
 		Result result = null;
 
-		/**
-		 * Envia a mensagem para o dispositivo
-		 */
 		try {
 			result = sender.send(message, ID_DISPOSITIVO_GCM, 1);
 			String canonicalRegId = result.getCanonicalRegistrationId();
@@ -39,6 +36,5 @@ public class EnviaPiada {
 		// Imprime o resultado do envio na sa’da padr‹o
 		if (result != null)
 			System.out.println(result.toString());
-
 	}
 }
