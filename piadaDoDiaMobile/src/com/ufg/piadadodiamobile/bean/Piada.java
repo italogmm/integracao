@@ -36,7 +36,7 @@ public class Piada {
 
 	@Override
 	public String toString() {
-		SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		Date data = new Date(timeDataRecebimento);
 		
 		return dataFormatada.format(data) + " - " + corpo;
