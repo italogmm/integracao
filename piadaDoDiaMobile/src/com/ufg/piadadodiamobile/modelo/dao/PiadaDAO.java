@@ -21,7 +21,7 @@ public class PiadaDAO extends SQLiteOpenHelper{
 	private static final String TABELA = "Piadas";
 	private static final String DATABASE = "MPAlunos";
 	
-	private static final String TAG = "CADASTRO_ALUNO";
+	private static final String TAG = "CADASTRO_PIADAS";
 	
 	public PiadaDAO(Context context){
 		super(context, DATABASE, null, VERSAO);
@@ -68,6 +68,7 @@ public class PiadaDAO extends SQLiteOpenHelper{
 			cursor.close();
 		}
 		
+		Log.i(TAG, "LISTANDO PIADAS");
 		return lista;
 	}
 	

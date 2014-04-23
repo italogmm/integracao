@@ -1,10 +1,16 @@
 package com.ufg.piadadodiamobile;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.google.android.gcm.GCMBaseIntentService;
+import com.ufg.piadadodiamobile.activity.AtivaGCMActivity;
 import com.ufg.piadadodiamobile.bean.Piada;
 import com.ufg.piadadodiamobile.modelo.dao.PiadaDAO;
 import com.ufg.piadadodiamobile.services.NotificacaoPiada;
@@ -57,9 +63,43 @@ public class GCMIntentService extends GCMBaseIntentService {
 			PiadaDAO piadaDao = new PiadaDAO(context);
 			piadaDao.cadastrar(new Piada(mensagem));
 			
-			NotificacaoPiada.mostraNotificacao("Sorria! Nova piada recebida", mensagem, context);
+			mostraNotificacao("Sorria! Nova piada recebida", mensagem, context);
 		}
 		
+	}
+	
+	public void mostraNotificacao(String titulo, String mensagem,
+			Context context) {
+
+		long tempoDefinido = System.currentTimeMillis();
+		
+		NotificationCompat.Builder mBuilder =
+		        new NotificationCompat.Builder(context)
+		        .setSmallIcon(R.drawable.ic_launcher)
+		        .setContentTitle(titulo)
+		        .setContentText(mensagem);
+		
+		//Notification notification = new Notification(R.drawable.ic_launcher, titulo, tempoDefinido);
+		Intent resultIntent = new Intent(context, AtivaGCMActivity.class);
+		resultIntent.putExtra("mensagem_recebida", mensagem);
+		
+		TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+		stackBuilder.addParentStack(AtivaGCMActivity.class);
+		stackBuilder.addNextIntent(resultIntent);
+		PendingIntent resultPendingIntent =
+		        stackBuilder.getPendingIntent(
+		            0,
+		            PendingIntent.FLAG_UPDATE_CURRENT
+		        );
+		
+		mBuilder.setContentIntent(resultPendingIntent);
+		
+		Notification notification = mBuilder.build();
+		notification.flags |= Notification.FLAG_AUTO_CANCEL;
+		notification.defaults = Notification.DEFAULT_ALL;
+		
+		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+		notificationManager.notify(0, notification);
 	}
 
 	/**

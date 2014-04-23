@@ -20,7 +20,7 @@ public class EnviaPiada {
 				.timeToLive(3)
 				.delayWhileIdle(true)
 				.addData("mensagem", // identificador da mensagem
-						"ultima")
+						"q isso uai ")
 				.build();
 
 		Result result = null;
