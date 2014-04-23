@@ -10,7 +10,7 @@ public class EnviaPiada {
 
 	private static final String ID_DISPOSITIVO_GCM = "APA91bHKGJz7HDkrgD6K_C8_yKqv99PqEKcs-c5CFQCWStTcdcZ3ev10lgeU0tsYcYxAnGM8-tOoAyrIokKZO2MhO3nn1SzOHXuOpvlqu4c_uwAWJkAmZLBL7mq2is1H-XZeFzrF-ANervFE_NPW93xrN9Zgb7BfNelfmPEmAtu0e96oWyqHBV8";
 
-	private static final String API_KEY = "AIzaSyBs_MPtEdFyEpYSYdAbCzXGmmU5rhjyQHA";
+	private static final String API_KEY = "AIzaSyBEDsYiT6Vqp-Wh2FEJPOEuFEG-pVrVRcQ";
 
 	public static void main(String[] args) {
 		
@@ -20,7 +20,7 @@ public class EnviaPiada {
 				.timeToLive(3)
 				.delayWhileIdle(true)
 				.addData("mensagem", // identificador da mensagem
-						"Teste mensagem khghkg envikjhkhkh ada 1234567!")
+						"ultima")
 				.build();
 
 		Result result = null;

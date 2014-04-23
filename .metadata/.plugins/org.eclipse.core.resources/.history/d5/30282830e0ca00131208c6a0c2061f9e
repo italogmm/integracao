@@ -1,0 +1,36 @@
+package com.ufg.piadadodiamobile.activity;
+
+import java.util.List;
+
+import android.app.Activity;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.widget.TextView;
+
+import com.ufg.piadadodiamobile.bean.Piada;
+import com.ufg.piadadodiamobile.modelo.dao.PiadaDAO;
+
+public class PiadaActivity extends Activity {
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+        
+		PiadaDAO piadaDao = new PiadaDAO(this);
+		List<Piada> piadas = piadaDao.listar();
+		
+		String piadas = "";
+		for(Piada piada : piadas){
+			
+		}
+		
+		TextView texto = new TextView(getApplicationContext());
+		texto.setText(getIntent().getStringExtra("mensagem_recebida"));
+
+		texto.setTextSize(20.0F);
+		texto.setTextColor(Color.BLACK);
+
+		setContentView(texto);
+	}
+}

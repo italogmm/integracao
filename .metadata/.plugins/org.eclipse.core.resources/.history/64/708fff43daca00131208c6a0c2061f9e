@@ -1,0 +1,7 @@
+package com.ufg.piadadodiamobile.bean;
+
+public class Piada {
+
+	Long id;
+	String corpo;
+}

@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.google.android.gcm.GCMBaseIntentService;
+import com.ufg.piadadodiamobile.bean.Piada;
+import com.ufg.piadadodiamobile.modelo.dao.PiadaDAO;
 import com.ufg.piadadodiamobile.services.NotificacaoPiada;
 
 public class GCMIntentService extends GCMBaseIntentService {
@@ -51,8 +53,12 @@ public class GCMIntentService extends GCMBaseIntentService {
 		 * Disparamos uma Notificação para avisar o usuário sobre a 
 		 * nova mensagem recebida da Nuvem.
 		 */
-		if (mensagem != null && !"".equals(mensagem))
+		if (mensagem != null && !"".equals(mensagem)){
+			PiadaDAO piadaDao = new PiadaDAO(context);
+			piadaDao.cadastrar(new Piada(mensagem));
+			
 			NotificacaoPiada.mostraNotificacao("Sorria! Nova piada recebida", mensagem, context);
+		}
 		
 	}
 
