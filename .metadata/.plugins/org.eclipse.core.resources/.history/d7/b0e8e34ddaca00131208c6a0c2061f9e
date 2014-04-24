@@ -1,9 +1,0 @@
-package com.ufg.piadadodiamobile.modelo.dao;
-
-import android.database.sqlite.SQLiteOpenHelper;
-
-public class PiadaDAO extends SQLiteOpenHelper{
-	
-	
-
-}

@@ -7,5 +7,6 @@
     <string name="title_activity_mostra_mensagem">Piada Recebida</string>
     <string name="title_activity_mostra_piada">MostraPiadaActivity</string>
     <string name="piadas_recebidas">Piadas recebidas</string>
+    <string name="title_activity_visualiza_piada">VisualizaPiada</string>
 
 </resources>

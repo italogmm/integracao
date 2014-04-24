@@ -33,7 +33,13 @@ public class Piada {
 	public void setTimeDataRecebimento(Long timeDataRecebimento) {
 		this.timeDataRecebimento = timeDataRecebimento;
 	}
-
+	
+	public String getDataFormatada(){
+		SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		Date data = new Date(timeDataRecebimento);
+		
+		return dataFormatada.format(data);
+	}
 	@Override
 	public String toString() {
 		SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy HH:mm");

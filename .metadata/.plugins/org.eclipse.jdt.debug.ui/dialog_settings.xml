@@ -6,15 +6,15 @@
 		<section name="DialogBoundsSettings">
 			<item value="600" key="DIALOG_WIDTH"/>
 			<item value="56" key="DIALOG_Y_ORIGIN"/>
-			<item value="306" key="DIALOG_X_ORIGIN"/>
 			<item value="500" key="DIALOG_HEIGHT"/>
+			<item value="306" key="DIALOG_X_ORIGIN"/>
 			<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 		</section>
 	</section>
 	<section name="org.eclipse.jdt.internal.debug.ui.ExpressionInformationControlCreator$ExpressionInformationControl">
-		<item value="200" key="SashWeightDetails"/>
-		<item value="200" key="SashWeightTree"/>
-		<item value="404" key="HEIGHT"/>
-		<item value="887" key="WIDTH"/>
+		<item value="500" key="SashWeightDetails"/>
+		<item value="500" key="SashWeightTree"/>
+		<item value="487" key="HEIGHT"/>
+		<item value="1106" key="WIDTH"/>
 	</section>
 </section>

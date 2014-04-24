@@ -51,6 +51,11 @@
                 <category android:name="com.ufg.piadadodiamobile" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name="com.ufg.piadadodiamobile.VisualizaPiada"
+            android:label="@string/title_activity_visualiza_piada" >
+        </activity>
     </application>
 
 </manifest>

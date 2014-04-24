@@ -18,8 +18,8 @@ import com.ufg.piadadodiamobile.bean.Piada;
 public class PiadaDAO extends SQLiteOpenHelper{
 	
 	private static final int VERSAO = 1;
-	private static final String TABELA = "Piadas";
-	private static final String DATABASE = "MPAlunos";
+	private static final String TABELA = "Piada";
+	private static final String DATABASE = "PiadaDoDiaMobile";
 	
 	private static final String TAG = "CADASTRO_PIADAS";
 	
@@ -70,6 +70,31 @@ public class PiadaDAO extends SQLiteOpenHelper{
 		
 		Log.i(TAG, "LISTANDO PIADAS");
 		return lista;
+	}
+	
+	public Piada consultar(long id){
+		
+		String sql = "Select * from " + TABELA + " where id = " + id;
+		
+		Cursor cursor = getReadableDatabase().rawQuery(sql, null);
+		
+		try{
+			while(cursor.moveToNext()){
+				Piada piada = new Piada();
+				
+				piada.setId(cursor.getLong(0));
+				piada.setCorpo(cursor.getString(1));
+				piada.setTimeDataRecebimento(cursor.getLong(2));
+				
+				return piada;
+			}
+		}catch(SQLException e){
+			Log.e(TAG, e.getMessage());
+		}finally{
+			cursor.close();
+		}
+		
+		return null;
 	}
 	
 	public void cadastrar(Piada piada){
