@@ -8,7 +8,6 @@
 <fullyQualifiedTypeName name="com.ufg.piadadodiamobile.activity.PiadaActivity"/>
 <fullyQualifiedTypeName name="com.ufg.piadadodiamobile.Constantes"/>
 <fullyQualifiedTypeName name="com.ufg.piadadodiamobile.MostraPiadaActivity"/>
-<fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="com.ufg.piadadodiamobile.R.id"/>
 <fullyQualifiedTypeName name="android.database.sqlite.SQLiteOpenHelper"/>
 <fullyQualifiedTypeName name="android.content.ContentValues"/>
@@ -26,4 +25,7 @@
 <fullyQualifiedTypeName name="android.app.TaskStackBuilder"/>
 <fullyQualifiedTypeName name="com.ufg.piadadodiamobile.activity.AtivaGCMActivity"/>
 <fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
+<fullyQualifiedTypeName name="com.ufg.piadadodiamobile.activity.PrincipalPiadaDoDia"/>
+<fullyQualifiedTypeName name="com.ufg.piadadodiamobile.VisualizaPiada"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
 </qualifiedTypeNameHistroy>

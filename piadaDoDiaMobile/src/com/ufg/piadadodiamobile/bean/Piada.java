@@ -42,9 +42,11 @@ public class Piada {
 	}
 	@Override
 	public String toString() {
-		SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy");
 		Date data = new Date(timeDataRecebimento);
 		
-		return dataFormatada.format(data) + " - " + corpo;
+		String corpoReduzido = corpo.length() > 100 ? corpo.substring(0, 99) + "..." : corpo;
+		
+		return dataFormatada.format(data) + " - " + corpoReduzido;
 	}
 }

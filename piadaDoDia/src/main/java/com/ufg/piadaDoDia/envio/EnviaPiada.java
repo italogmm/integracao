@@ -19,21 +19,17 @@ public class EnviaPiada {
 				.collapseKey("1")
 				.timeToLive(3)
 				.delayWhileIdle(true)
-				.addData("mensagem", // identificador da mensagem
-						"Piada 2")
+				.addData("mensagem", "TESTE MUITO TEMPO!")
 				.build();
 
 		Result result = null;
 
 		try {
 			result = sender.send(message, ID_DISPOSITIVO_GCM, 1);
-			String canonicalRegId = result.getCanonicalRegistrationId();
-			System.out.println("canonicalRegId: " + canonicalRegId);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		// Imprime o resultado do envio na sa’da padr‹o
 		if (result != null)
 			System.out.println(result.toString());
 	}
