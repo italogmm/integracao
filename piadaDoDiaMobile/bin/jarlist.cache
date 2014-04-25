@@ -1,5 +1,7 @@
 # cache for current jar dependency. DO NOT EDIT.
 # format is <lastModified> <length> <SHA-1> <path>
 # Encoding is UTF-8
-1396395979000 648327 ded9acc6a9792b8f1afc470f0c9cd36d178914cd /git/piadaDoDia/appcompat_v7/libs/android-support-v4.jar
+1396395982000 349134 21297ae2bf22a0ce81c9b59992cf0693eec45d5b /git/piadaDoDia/android-support-v7-appcompat/libs/android-support-v7-appcompat.jar
+1398377873000 349134 21297ae2bf22a0ce81c9b59992cf0693eec45d5b /git/piadaDoDia/piadaDoDiaMobile/libs/android-support-v7-appcompat.jar
+1396395979000 648327 ded9acc6a9792b8f1afc470f0c9cd36d178914cd /git/piadaDoDia/android-support-v7-appcompat/libs/android-support-v4.jar
 1396565021000 648327 ded9acc6a9792b8f1afc470f0c9cd36d178914cd /git/piadaDoDia/piadaDoDiaMobile/libs/android-support-v4.jar
