@@ -1,6 +1,9 @@
 package com.ufg.piadaDoDia.envio;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 import com.google.android.gcm.server.Message;
 import com.google.android.gcm.server.Result;
@@ -8,29 +11,44 @@ import com.google.android.gcm.server.Sender;
 
 public class EnviaPiada {
 
-	private static final String ID_DISPOSITIVO_GCM = "APA91bHKGJz7HDkrgD6K_C8_yKqv99PqEKcs-c5CFQCWStTcdcZ3ev10lgeU0tsYcYxAnGM8-tOoAyrIokKZO2MhO3nn1SzOHXuOpvlqu4c_uwAWJkAmZLBL7mq2is1H-XZeFzrF-ANervFE_NPW93xrN9Zgb7BfNelfmPEmAtu0e96oWyqHBV8";
-
-	private static final String API_KEY = "AIzaSyBEDsYiT6Vqp-Wh2FEJPOEuFEG-pVrVRcQ";
-
 	public static void main(String[] args) {
-		
-		Sender sender = new Sender(API_KEY);
-		Message message = new Message.Builder()
-				.collapseKey("1")
-				.timeToLive(3)
-				.delayWhileIdle(true)
-				.addData("mensagem", "TESTE MUITO TEMPO!")
-				.build();
+
+		System.out.println("Insira o local do arquivo de configuração:");
+
+		Scanner scanner = new Scanner(System.in);
+		String caminhoArquivo = scanner.nextLine();
+
+		String idDispositivo = "";
+		String apiKey = "";
+		try {
+			FileReader arq = new FileReader(caminhoArquivo);
+			BufferedReader lerArq = new BufferedReader(arq);
+			idDispositivo = lerArq.readLine();
+			apiKey = lerArq.readLine();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		System.out.println("Insira a piada que deseja enviar:");
+		String piada = scanner.nextLine();
+
+		Sender sender = new Sender(apiKey);
+		Message message = new Message.Builder().collapseKey("1").timeToLive(3)
+				.delayWhileIdle(true).addData("mensagem", piada).build();
 
 		Result result = null;
 
 		try {
-			result = sender.send(message, ID_DISPOSITIVO_GCM, 1);
+			result = sender.send(message, idDispositivo, 1);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		if (result != null)
-			System.out.println(result.toString());
+		if (result != null) {
+			System.out.println("Id do dispositivo: " + idDispositivo);
+			System.out.println("API KEY: " + apiKey);
+			System.out.println("Piada: " + piada);
+			System.out.println("Resultado: " + result.toString());
+		}
 	}
 }
