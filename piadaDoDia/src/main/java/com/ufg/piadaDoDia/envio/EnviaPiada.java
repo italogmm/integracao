@@ -3,6 +3,8 @@ package com.ufg.piadaDoDia.envio;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.google.android.gcm.server.Message;
@@ -17,15 +19,22 @@ public class EnviaPiada {
 
 		Scanner scanner = new Scanner(System.in);
 		String caminhoArquivo = scanner.nextLine();
+		List<String> listaDispositivos = new ArrayList<String>();
 
-		String idDispositivo = "";
 		String apiKey = "";
 		try {
 			FileReader arq = new FileReader(caminhoArquivo);
 			BufferedReader lerArq = new BufferedReader(arq);
-			idDispositivo = lerArq.readLine();
 			apiKey = lerArq.readLine();
+			System.out.println("APIKEY: " + apiKey);
+			String idDispositivo = lerArq.readLine();
+			while(idDispositivo != null && !idDispositivo.equals("")){
+				listaDispositivos.add(idDispositivo);
+				
+				idDispositivo = lerArq.readLine();
+			}
 		} catch (Exception e) {
+			
 			e.printStackTrace();
 		}
 
@@ -39,16 +48,15 @@ public class EnviaPiada {
 		Result result = null;
 
 		try {
-			result = sender.send(message, idDispositivo, 1);
+			for(String idDispositivo : listaDispositivos){
+				result = sender.send(message, idDispositivo, 1);
+				if (result != null) {
+					System.out.println("Enviando para o dispositivo: " + idDispositivo + " - Result: " + result.toString());
+				}
+			}
+			
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-
-		if (result != null) {
-			System.out.println("Id do dispositivo: " + idDispositivo);
-			System.out.println("API KEY: " + apiKey);
-			System.out.println("Piada: " + piada);
-			System.out.println("Resultado: " + result.toString());
 		}
 	}
 }
