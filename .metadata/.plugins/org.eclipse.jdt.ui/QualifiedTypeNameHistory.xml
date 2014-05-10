@@ -28,4 +28,5 @@
 <fullyQualifiedTypeName name="com.ufg.piadadodiamobile.activity.PrincipalPiadaDoDia"/>
 <fullyQualifiedTypeName name="com.ufg.piadadodiamobile.VisualizaPiada"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
 </qualifiedTypeNameHistroy>
