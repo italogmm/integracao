@@ -14,8 +14,11 @@ import com.google.android.gcm.server.Sender;
 public class EnviaPiada {
 
 	public static void main(String[] args) {
-
-		System.out.println("Insira o local do arquivo de configura��o:");
+		
+		/**
+		 * O Arquivo de configuração deve ser um txt com a API KEY na primeira linha, e nas demais os ids dos dipositivos paras os quais se quer enviar a mensagem.
+		 */
+		System.out.println("Insira o local do arquivo de configuração:");
 
 		Scanner scanner = new Scanner(System.in);
 		String caminhoArquivo = scanner.nextLine();
@@ -33,30 +36,48 @@ public class EnviaPiada {
 				
 				idDispositivo = lerArq.readLine();
 			}
+			
+			lerArq.close();
 		} catch (Exception e) {
 			
 			e.printStackTrace();
 		}
-
-		System.out.println("Insira a piada que deseja enviar:");
-		String piada = scanner.nextLine();
-
-		Sender sender = new Sender(apiKey);
-		Message message = new Message.Builder().collapseKey("1").timeToLive(3)
-				.delayWhileIdle(true).addData("mensagem", piada).build();
-
-		Result result = null;
-
-		try {
-			for(String idDispositivo : listaDispositivos){
-				result = sender.send(message, idDispositivo, 1);
-				if (result != null) {
-					System.out.println("Enviando para o dispositivo: " + idDispositivo + " - Result: " + result.toString());
+		
+		boolean continuar = true;
+		while(continuar){
+			System.out.println("Escolha uma opção:");
+			System.out.println("1 - Enviar piada");
+			System.out.println("2 - Sair");
+			
+			String valorMenu = scanner.nextLine();
+			
+			if(valorMenu.equals("2"))
+				continuar = false;
+			else if(valorMenu.equals("1")){
+			
+				System.out.println("Insira a piada que deseja enviar:");
+				String piada = scanner.nextLine();
+				
+				if(piada != null && !piada.equals("")){
+					Sender sender = new Sender(apiKey);
+					Message message = new Message.Builder().collapseKey("1").timeToLive(3)
+							.delayWhileIdle(true).addData("mensagem", piada).build();
+		
+					Result result = null;
+		
+					try {
+						for(String idDispositivo : listaDispositivos){
+							result = sender.send(message, idDispositivo, 1);
+							if (result != null) {
+								System.out.println("Piada enviada!");
+							}
+						}
+						
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 				}
 			}
-			
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 	}
 }

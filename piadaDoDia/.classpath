@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="lib/json_simple-1.1.jar"/>
 	<classpathentry kind="lib" path="lib/junit.jar"/>
 	<classpathentry kind="lib" path="lib/mockito-all-1.8.5.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/piadaDoDiaMobile"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
