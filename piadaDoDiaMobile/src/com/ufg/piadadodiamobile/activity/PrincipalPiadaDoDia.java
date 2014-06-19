@@ -41,7 +41,7 @@ public class PrincipalPiadaDoDia extends ActionBarActivity {
 			
 			carregarLista();
 		}else{
-			Toast.makeText(getApplicationContext(), "Recebimento de piadas não ativado!", Toast.LENGTH_LONG).show();
+			Toast.makeText(getApplicationContext(), "Recebimento de piadas n√£o ativado!", Toast.LENGTH_LONG).show();
 		}
 	}
 	

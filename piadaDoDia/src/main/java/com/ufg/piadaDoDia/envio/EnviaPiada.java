@@ -16,7 +16,9 @@ public class EnviaPiada {
 	public static void main(String[] args) {
 		
 		/**
-		 * O Arquivo de configuração deve ser um txt com a API KEY na primeira linha, e nas demais os ids dos dipositivos paras os quais se quer enviar a mensagem.
+		 * O Arquivo de configuração deve ser um txt com a API KEY na primeira linha, 
+		 * e nas demais os ids dos dipositivos paras os quais se quer enviar a mensagem (O Id registrado é mostrado no 
+		 * logcat ao executar o app no dispositivo).
 		 */
 		System.out.println("Insira o local do arquivo de configuração:");
 

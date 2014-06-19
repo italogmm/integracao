@@ -1,5 +1,7 @@
 package com.ufg.piadadodiamobile;
 
+import java.io.UnsupportedEncodingException;
+
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -37,14 +39,21 @@ public class GCMIntentService extends GCMBaseIntentService {
 	protected void onMessage(Context context, Intent intent) {
 		
 		String mensagem = intent.getExtras().getString("mensagem");
-		Log.i(Constantes.TAG, "Mensagem recebida: " + mensagem);
+		
+			try {
+				//A mensagem não deve possuir mais de 2kb, caso possua será ignorada.
+				if(mensagem.getBytes("UTF-8").length/2048 <= 2){
+					Log.i(Constantes.TAG, "Mensagem recebida: " + mensagem);
 
-		if (mensagem != null && !"".equals(mensagem)){
-			PiadaDAO piadaDao = new PiadaDAO(context);
-			piadaDao.cadastrar(new Piada(mensagem));
-			
-			mostraNotificacao("Sorria! Nova piada recebida", mensagem, context);
-		}
+					if (mensagem != null && !"".equals(mensagem)){
+						PiadaDAO piadaDao = new PiadaDAO(context);
+						piadaDao.cadastrar(new Piada(mensagem));
+						
+						mostraNotificacao("Sorria! Nova piada recebida", mensagem, context);
+					}
+				}
+			} catch (UnsupportedEncodingException e) {
+			}
 	}
 	
 	public void mostraNotificacao(String titulo, String mensagem, Context context) {
